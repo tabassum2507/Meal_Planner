@@ -6,6 +6,14 @@ const HomeScreen = () => {
  const currentDate = moment();
  const startOfWeek = currentDate.clone().startOf('week');
  const [date, setDate] = useState("")
+
+ const openModal = date => {
+  setDate(date.format('ddd') + ' ' + date.format('DD'));
+  const nextDate = moment(date, 'ddd DD').add(1, 'day').format('ddd DD');
+  setNextDate(nextDate);
+  setModalVisible(!modalVisible);
+};
+
  const renderWeeks = numWeeks => {
     let weeks = []
     for(let i=0; i<numWeeks; i++){
