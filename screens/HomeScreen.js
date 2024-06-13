@@ -9,6 +9,7 @@ const HomeScreen = () => {
 
  const openModal = date => {
   setDate(date.format('ddd') + ' ' + date.format('DD'));
+  
   const nextDate = moment(date, 'ddd DD').add(1, 'day').format('ddd DD');
   setNextDate(nextDate);
   setModalVisible(!modalVisible);
